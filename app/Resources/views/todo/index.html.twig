@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block main_content %}
+
+<div class="row">
+        <div class="col-md-12">
+            <h1>BlauwGeel: TODO LIST</h1>
+        </div>
+    </div>
+
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="alert alert-info">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-12">  
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>Item</th>
+                    <th class="col-md-2">Done?</th>
+                    <th class="col-md-2">Last modified</th>
+                    <th class="col-md-1"><a href="/todo/create" class="btn btn-info">Create</a></th>
+                </tr>
+                {% for item in items %}
+                <tr>
+                    <td>
+                        <a href="/todo/view/{{ item.id }}">
+                            {% if item.done %}
+                                <span style="text-decoration: line-through;">{{ item.item }}</span>
+                            {% else %}
+                                {{ item.item }}
+                            {% endif %}
+                        </a>
+                    </td>
+                    <td>{{ item.done ? "yes" : "no" }}</td>
+                    <td>{{ item.lastmodified|date('Y-m-d H:i:s') }}</td>
+                    <td><a href="/todo/delete/{{ item.id }}" class="btn btn-danger confirm">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table> 
+		</div>
+	</div>
+</div>
+
+{% endblock main_content %}
