@@ -38,9 +38,24 @@ class TodoController extends Controller {
 
         $form = $this->createFormBuilder($item)
             ->add('item', TextType::class)
-            ->add('done', ChoiceType::class, array('choices' => array('Yes' => 1, 'No' => 0)))
-            ->add('save', SubmitType::class, array('label' => 'Save', 'attr' => array('class' => 'btn btn-info')))
-            ->add('back', SubmitType::class, array('label' => 'Back', 'attr' => array('class' => 'btn btn-danger')))
+            ->add('done', ChoiceType::class, array(
+                'choices' => array(
+                    'Yes' => 1,
+                    'No' => 0
+                )
+            ))
+            ->add('save', SubmitType::class, array(
+                'label' => 'Save',
+                'attr' => array(
+                    'class' => 'btn btn-info'
+                )
+            ))
+            ->add('back', SubmitType::class, array(
+                'label' => 'Back',
+                'attr' => array(
+                    'class' => 'btn btn-danger'
+                )
+            ))
             ->getForm();
 
         $form->handleRequest($request);
@@ -76,9 +91,24 @@ class TodoController extends Controller {
         $item = new Item;
         $form = $this->createFormBuilder($item)
             ->add('item', TextType::class)
-            ->add('done', ChoiceType::class, array('choices' => array('Yes' => 1, 'No' => 0)))
-            ->add('save', SubmitType::class, array('label' => 'Save', 'attr' => array('class' => 'btn btn-info')))
-            ->add('back', SubmitType::class, array('label' => 'Back', 'attr' => array('class' => 'btn btn-danger')))
+            ->add('done', ChoiceType::class, array(
+                'choices' => array(
+                    'Yes' => 1,
+                    'No' => 0
+                )
+            ))
+            ->add('save', SubmitType::class, array(
+                'label' => 'Save',
+                'attr' => array(
+                    'class' => 'btn btn-info'
+                )
+            ))
+            ->add('back', SubmitType::class, array(
+                'label' => 'Back',
+                'attr' => array(
+                    'class' => 'btn btn-danger'
+                )
+            ))
             ->getForm();
 
         $form->handleRequest($request);
